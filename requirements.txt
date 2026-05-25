@@ -1,0 +1,6 @@
+# 333交易系统 - 依赖包
+requests>=2.31.0
+pandas>=2.0.0
+plotly>=5.14.0
+streamlit>=1.28.0
+numpy>=1.24.0

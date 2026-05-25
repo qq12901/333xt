@@ -2,53 +2,40 @@
 
 专业量化交易策略平台 - 基于MA30均线交叉策略
 
-## 项目结构
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy)
+
+## 📁 项目结构
 
 ```
-333xt/
-├── src/                    # 源代码
-│   ├── main.py            # 主程序入口
-│   ├── realtime.py        # 实时数据管理
-│   ├── api/               # API接口
-│   ├── datasources/       # 数据源管理
-│   │   ├── base.py
-│   │   ├── eastmoney.py   # 东方财富数据源
-│   │   ├── sina.py       # 新浪财经数据源
-│   │   ├── tencent.py     # 腾讯财经数据源
-│   │   └── multi_source_manager.py  # 多数据源管理器
-│   ├── execution/         # 交易执行
-│   │   └── simulated.py   # 模拟账户
-│   ├── indicators/        # 技术指标
-│   │   └── ma.py         # 移动平均线
-│   ├── logging/           # 日志记录
-│   │   └── logger.py
-│   ├── models/            # 数据模型
-│   │   ├── kline.py      # K线数据
-│   │   ├── position.py   # 持仓
-│   │   ├── signal.py     # 交易信号
-│   │   └── trade.py      # 交易记录
-│   ├── strategy/          # 交易策略
-│   │   └── strategy_333.py  # 333策略
-│   └── web/               # Web界面
-│       ├── app.py         # 主应用
-│       ├── components/    # UI组件
-│       └── __init__.py
-├── config/                # 配置文件
-│   ├── settings.py
-│   ├── strategies.py
-│   └── __init__.py
-├── tests/                 # 测试脚本
-│   ├── check_system.py    # 系统检查
-│   └── test_backtest.py  # 回测测试
-├── examples/              # 示例代码
-│   ├── example_real_data.py   # 真实数据示例
-│   └── live_analysis.py       # 实盘分析
-├── scripts/               # 辅助脚本
-│   ├── run_web.py         # 启动Web
-│   ├── run_realtime.py    # 实时运行
-│   └── start_system.py    # 启动系统
-├── logs/                  # 日志文件
-└── README.md              # 项目说明
+333交易系统/
+├── .github/
+│   └── workflows/
+│       └── python-app.yml   # GitHub CI工作流程
+├── .streamlit/
+│   └── config.toml         # Streamlit配置文件
+├── config/                     # 配置文件
+├── examples/                   # 示例代码
+├── scripts/                    # 辅助脚本
+│   ├── run_web.bat         # Windows一键启动
+│   ├── run_web.sh         # Linux/Mac一键启动
+│   ├── run_web.py          # Python启动脚本
+│   ├── run_realtime.py     # 实时运行
+│   └── start_system.py      # 启动系统
+├── src/                        # 核心代码
+│   ├── datasources/          # 数据源管理
+│   ├── execution/           # 交易执行
+│   ├── indicators/          # 技术指标
+│   ├── logging/            # 日志记录
+│   ├── models/             # 数据模型
+│   ├── strategy/           # 交易策略
+│   ├── web/                # Web界面
+│   ├── main.py
+│   └── realtime.py
+├── tests/                      # 测试脚本
+├── .gitignore
+├── app.py                      # ⭐ Streamlit Cloud入口文件
+├── README.md
+└── requirements.txt
 ```
 
 ## 核心功能
@@ -70,18 +57,44 @@
 - 回测功能
 - 交易记录查看
 
-## 快速开始
+## 🚀 快速体验
 
-### 启动Web界面
+### 1️⃣ 在线部署到Streamlit Cloud
+
+点击下方按钮一键部署（免费）：
+
+[![Deploy to Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy)
+
+**部署步骤：**
+1. 点击上面的按钮
+2. 登录您的GitHub账号
+3. 填写部署信息：
+   - **Repository**: 选择您的333交易系统仓库
+   - **Branch**: `main`
+   - **Main file path**: **`app.py`** (⚠️ 关键！不要填其他路径)
+4. 点击 **Deploy!** 按钮
+5. 等待约1-2分钟，即可获得永久在线访问地址！
+
+### 2️⃣ 本地运行
+
+#### 一键启动
 
 ```bash
-streamlit run src/web/app.py
+# Windows
+scripts\run_web.bat
+
+# Linux/Mac
+bash scripts/run_web.sh
 ```
 
-或使用快捷脚本：
+#### 或手动启动
 
 ```bash
-python scripts/run_web.py
+# 1. 安装依赖
+pip install -r requirements.txt
+
+# 2. 启动Web界面
+streamlit run app.py
 ```
 
 ### 运行回测
