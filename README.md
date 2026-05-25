@@ -1,4 +1,9 @@
-# 333交易系统
+# 333xt - 333交易系统
+
+[![GitHub stars](https://img.shields.io/github/stars/qq12901/333xt?style=social)](https://github.com/qq12901/333xt/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/qq12901/333xt?style=social)](https://github.com/qq12901/333xt/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/qq12901/333xt)](https://github.com/qq12901/333xt/issues)
+[![License](https://img.shields.io/github/license/qq12901/333xt)](https://github.com/qq12901/333xt/blob/main/LICENSE)
 
 专业量化交易策略平台 - 基于MA30均线交叉策略
 
