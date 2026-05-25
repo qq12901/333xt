@@ -4,7 +4,6 @@
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy)
 
-
 ## 📁 项目结构
 
 ```
@@ -34,10 +33,8 @@
 │   └── realtime.py
 ├── tests/                      # 测试脚本
 ├── .gitignore
-├── DEPLOY.md                  # 部署指南 🆕
+├── app.py                      # ⭐ Streamlit Cloud入口文件
 ├── README.md
-├── ROADMAP.md
-├── SYSTEM_CHECK_REPORT.md
 └── requirements.txt
 ```
 
@@ -62,25 +59,21 @@
 
 ## 🚀 快速体验
 
-### 1️⃣ 在线体验 ⭐ 重要
+### 1️⃣ 在线部署到Streamlit Cloud
 
-点击下方按钮一键部署到 **Streamlit Community Cloud**（免费）：
+点击下方按钮一键部署（免费）：
 
 [![Deploy to Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy)
 
-部署步骤：
+**部署步骤：**
 1. 点击上面的按钮
 2. 登录您的GitHub账号
 3. 填写部署信息：
    - **Repository**: 选择您的333交易系统仓库
    - **Branch**: `main`
-   - **Main file path**: **`app.py`** (⚠️ 关键步骤，不要填 `src/web/app.py`)
+   - **Main file path**: **`app.py`** (⚠️ 关键！不要填其他路径)
 4. 点击 **Deploy!** 按钮
 5. 等待约1-2分钟，即可获得永久在线访问地址！
-
-如果遇到 `ModuleNotFoundError` 错误，请查看 [DEPLOY.md](DEPLOY.md) 中的故障排查部分！
-
----
 
 ### 2️⃣ 本地运行
 
@@ -101,13 +94,7 @@ bash scripts/run_web.sh
 pip install -r requirements.txt
 
 # 2. 启动Web界面
-streamlit run src/web/app.py
-```
-
-#### 或使用Python脚本
-
-```bash
-python scripts/run_web.py
+streamlit run app.py
 ```
 
 ### 运行回测
@@ -170,10 +157,6 @@ python tests/check_system.py
 ### V1.0
 - 基础框架
 - 333策略实现
-
-## 📖 更多文档
-
-- [部署指南](DEPLOY.md) - 详细的在线部署和本地运行指南
 
 ## 联系方式
 
