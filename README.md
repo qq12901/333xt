@@ -62,7 +62,7 @@
 
 ## 🚀 快速体验
 
-### 1️⃣ 在线体验
+### 1️⃣ 在线体验 ⭐ 重要
 
 点击下方按钮一键部署到 **Streamlit Community Cloud**（免费）：
 
@@ -71,9 +71,14 @@
 部署步骤：
 1. 点击上面的按钮
 2. 登录您的GitHub账号
-3. 选择您的333交易系统仓库
+3. 填写部署信息：
+   - **Repository**: 选择您的333交易系统仓库
+   - **Branch**: `main`
+   - **Main file path**: **`app.py`** (⚠️ 关键步骤，不要填 `src/web/app.py`)
 4. 点击 **Deploy!** 按钮
 5. 等待约1-2分钟，即可获得永久在线访问地址！
+
+如果遇到 `ModuleNotFoundError` 错误，请查看 [DEPLOY.md](DEPLOY.md) 中的故障排查部分！
 
 ---
 

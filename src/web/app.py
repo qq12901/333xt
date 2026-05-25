@@ -3,8 +3,34 @@
 import sys
 from pathlib import Path
 
-project_path = Path(__file__).parent.parent.parent
-sys.path.insert(0, str(project_path))
+# 智能设置项目路径 - 兼容本地和Streamlit Cloud部署
+def setup_project_path():
+    """设置正确的项目路径"""
+    try:
+        # 方式1: 尝试从当前文件位置查找
+        current_file = Path(__file__).resolve()
+        
+        # 向上查找项目根目录（寻找requirements.txt作为标记）
+        for parent in [current_file, *current_file.parents]:
+            if (parent / "requirements.txt").exists():
+                project_root = parent
+                break
+        else:
+            # 方式2: 回退到相对路径
+            project_root = Path(__file__).parent.parent.parent
+        
+        if str(project_root) not in sys.path:
+            sys.path.insert(0, str(project_root))
+    except Exception as e:
+        # 如果所有方式都失败，尝试最简单的方式
+        try:
+            project_root = Path(__file__).parent.parent.parent
+            if str(project_root) not in sys.path:
+                sys.path.insert(0, str(project_root))
+        except:
+            pass
+
+setup_project_path()
 
 import streamlit as st
 import pandas as pd

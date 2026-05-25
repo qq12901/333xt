@@ -18,14 +18,14 @@ git remote add origin https://github.com/您的用户名/333-trading-system.git
 git push -u origin main
 ```
 
-#### 步骤 2: 部署到Streamlit Cloud
+#### 步骤 2: 部署到Streamlit Cloud ⭐ 重要
 
 1. 访问: https://share.streamlit.io/deploy
 2. 登录您的GitHub账号
 3. 填写部署信息：
    - **Repository**: 选择您的333交易系统仓库
-   - **Branch**: `main`
-   - **Main file path**: `src/web/app.py`
+   - **Branch**: `main` (或 `master`)
+   - **Main file path**: **`app.py`** (这是关键！不要填 `src/web/app.py`)
 4. 点击 **Deploy!** 按钮
 5. 等待1-2分钟，部署完成！
 
@@ -37,6 +37,28 @@ https://your-username-333-trading-system.streamlit.app
 ```
 
 您可以分享这个地址给任何人访问！
+
+---
+
+## 🔧 常见问题排查
+
+### ModuleNotFoundError 问题
+
+如果您在Streamlit Cloud上看到 `ModuleNotFoundError` 错误，请确保：
+
+1. ✅ **使用根目录的 `app.py` 作为入口文件**（不要用 `src/web/app.py`）
+2. ✅ **确认 `requirements.txt` 文件在项目根目录**
+3. ✅ **已推送到GitHub的最新代码包含我们的修复**
+
+### 修复方法
+
+如果已经部署但报错，请：
+
+1. 在Streamlit Cloud的应用管理页面，点击 **Manage app** > **Settings**
+2. 修改 **Main file path** 为 `app.py`
+3. 点击 **Save**，系统会自动重新部署
+
+或者直接在GitHub上更新代码，Streamlit Cloud会自动检测并重新部署！
 
 ---
 
