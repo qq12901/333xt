@@ -1,0 +1,27 @@
+[Unit]
+Description=333交易系统服务
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/workspace
+ExecStart=/usr/bin/python -m src.daemon.trading_service start
+ExecReload=/usr/bin/python scripts/tradingctl.py restart
+ExecStop=/usr/bin/python scripts/tradingctl.py stop
+Restart=always
+RestartSec=5
+KillMode=process
+
+# 日志配置
+StandardOutput=append:/workspace/logs/trading_system.log
+StandardError=append:/workspace/logs/trading_system.log
+
+# 环境变量
+Environment="PYTHONPATH=/workspace"
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+
+[Install]
+WantedBy=multi-user.target
